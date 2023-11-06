@@ -1,38 +1,18 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>All memories</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Kwabena </ion-item>
-        <ion-item>Aboagye </ion-item>
-        <ion-item>Heming </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-page>
+  <BaseLayout page-title="All Memories">
+    <ion-list>
+      <ion-item>A trip into the mountains </ion-item>
+      <ion-item>Surfing the sea side </ion-item>
+      <ion-item>Good eating </ion-item>
+    </ion-list>
+  </BaseLayout>
 </template>
 
 <script>
-import {
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-  IonList,
-  IonItem,
-} from "@ionic/vue";
+import { IonList, IonItem } from "@ionic/vue";
 
 export default {
   components: {
-    IonPage,
-    IonHeader,
-    IonTitle,
-    IonContent,
-    IonToolbar,
     IonList,
     IonItem,
   },
