@@ -1,10 +1,23 @@
 <template>
-  <BaseLayout page-title="Details">
+  <BaseLayout :pageTitle="pageTitle" :pageDefaultBackLink="/memories">
     <ion-list>
       <h1>The Details Page</h1>
     </ion-list>
   </BaseLayout>
 </template>
 <script>
-export default {};
+import { IonList } from "@ionic/vue";
+import BaseLayout from "../components/base/BaseLayout.vue";
+
+export default {
+  components: {
+    IonList,
+    BaseLayout,
+  },
+  data() {
+    return {
+      pageTitle: "Details",
+    };
+  },
+};
 </script>
