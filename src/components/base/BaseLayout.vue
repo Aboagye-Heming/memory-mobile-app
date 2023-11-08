@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-back-button
             class="jj"
-            default-href="pageDefaultBackLink"
+            :default-href="pageDefaultBackLink"
           ></ion-back-button>
         </ion-buttons>
         <ion-title>{{ pageTitle }}</ion-title>

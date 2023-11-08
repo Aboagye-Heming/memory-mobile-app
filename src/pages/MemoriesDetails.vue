@@ -1,7 +1,8 @@
 <template>
-  <BaseLayout :pageTitle="pageTitle" :pageDefaultBackLink="/memories">
+  <BaseLayout :pageTitle="loadedMemory.title" page-default-back-link="/memories">
     <ion-list>
-      <h1>The Details Page</h1>
+      <h1 v-if="!loadedMemory">Could not find memory for the given id.</h1>
+      <h3 v-else>Loaded it</h3>
     </ion-list>
   </BaseLayout>
 </template>
@@ -16,8 +17,19 @@ export default {
   },
   data() {
     return {
-      pageTitle: "Details",
+    //   pageTitle: "Details",
+      memoryId: this.$route.params.id,
     };
+  },
+  computed: {
+    loadedMemory() {
+      return this.$store.getters.memory(this.memoryId);
+    },
+  },
+  watch: {
+    $route(currentRoute) {
+      this.memoryId = currentRoute.params.id;
+    },
   },
 };
 </script>

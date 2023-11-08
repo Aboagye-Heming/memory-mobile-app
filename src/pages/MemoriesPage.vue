@@ -1,26 +1,39 @@
 <template>
   <BaseLayout :pageTitle="pageTitle">
     <ion-list>
-      <ion-item router-link="/memories/1">A trip into the mountains </ion-item>
-      <ion-item>Surfing the sea side </ion-item>
-      <ion-item>Good eating </ion-item>
+      <ion-item
+        v-for="memory in memories"
+        :router-link="`/memories/${memory.id}`"
+        :key="memory.id"
+      >
+      <ion-img :src="memories.img"></ion-img>
+        {{ memory.title }}
+        {{ memory.img }}
+      </ion-item>
     </ion-list>
   </BaseLayout>
 </template>
 
 <script>
-import { IonList, IonItem } from "@ionic/vue";
+import { IonList, IonItem,IonImg } from "@ionic/vue";
 import BaseLayout from "../components/base/BaseLayout.vue";
 
 export default {
   components: {
     IonList,
-    IonItem,BaseLayout,
+    IonItem,
+    BaseLayout,
   },
   data() {
     return {
       pageTitle: "All Memories",
+     
     };
   },
+  computed: {
+    memories(){
+      return this.$store.getters.memories;
+    }
+  }
 };
 </script>
